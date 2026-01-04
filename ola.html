@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases Particulares - Manuel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .flyer {
+            background: white;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .subject-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+        
+        .subject-card:hover {
+            transform: translateX(5px);
+        }
+        
+        .subject-card h3 {
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .subject-card p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .info-section {
+            background: #ecf0f1;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .info-section h2 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-section h2::before {
+            content: "✓";
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #27ae60;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #34495e;
+        }
+        
+        .info-item strong {
+            min-width: 80px;
+            color: #2c3e50;
+        }
+        
+        .price-box {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .price-box h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        .price-main {
+            font-size: 3em;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .price-promo {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .price-promo p {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .price-promo .promo-price {
+            font-size: 2em;
+            font-weight: 700;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .feature::before {
+            content: "★";
+            color: #f39c12;
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+        }
+        
+        .contact h2 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .whatsapp-btn::before {
+            content: "📱 ";
+        }
+        
+        @media (max-width: 600px) {
+            .subjects, .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .price-main {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <div class="header">
+            <h1>Clases Particulares</h1>
+            <p>con Manuel</p>
+        </div>
+        
+        <div class="content">
+            <div class="subjects">
+                <div class="subject-card">
+                    <h3>📐 Matemáticas</h3>
+                    <p>Primaria y Secundaria</p>
+                </div>
+                <div class="subject-card">
+                    <h3>🧪 Química</h3>
+                    <p>Nivel Básico e Intermedio</p>
+                </div>
+                <div class="subject-card">
+                    <h3>📚 Lengua</h3>
+                    <p>Comprensión y Redacción</p>
+                </div>
+                <div class="subject-card">
+                    <h3>💻 Informática</h3>
+                    <p>Introducción y Básico</p>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>Modalidad de Clases</h2>
+                <div class="info-item">
+                    <strong>📍 Zona:</strong> Céntrica, Salta Capital
+                </div>
+                <div class="info-item">
+                    <strong>🎓 Niveles:</strong> Primario y Secundario Básico
+                </div>
+                <div class="info-item">
+                    <strong>🏠 Lugar:</strong> A domicilio o en mi domicilio
+                </div>
+                <div class="info-item">
+                    <strong>⏰ Horarios:</strong> Flexibles según disponibilidad
+                </div>
+            </div>
+            
+            <div class="price-box">
+                <h2>Tarifas</h2>
+                <div class="price-main">$10.000</div>
+                <p>por hora de clase</p>
+                
+                <div class="price-promo">
+                    <p>🎁 <strong>¡Oferta Primera Clase!</strong></p>
+                    <div class="promo-price">$8.000</div>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    Paciencia y dedicación
+                </div>
+                <div class="feature">
+                    Compromiso con el aprendizaje
+                </div>
+                <div class="feature">
+                    Explicaciones claras
+                </div>
+                <div class="feature">
+                    Material de apoyo incluido
+                </div>
+            </div>
+            
+            <div class="contact">
+                <h2>¡Reservá tu clase!</h2>
+                <p>Contactame por WhatsApp</p>
+                <a href="https://wa.me/5493875026987" class="whatsapp-btn">387 502-6987</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
